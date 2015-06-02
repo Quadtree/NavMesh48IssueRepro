@@ -16,12 +16,6 @@ ACustomPlaneTest::ACustomPlaneTest(const FObjectInitializer& oi) : Super(oi)
 	RootComponent = ProceduralMesh;
 	check(RootComponent);
 	ProceduralMesh->SetMobility(EComponentMobility::Stationary);
-}
-
-// Called when the game starts or when spawned
-void ACustomPlaneTest::BeginPlay()
-{
-	Super::BeginPlay();
 
 	TArray<FVector> vertices;
 	TArray<FVector> normals;
@@ -49,6 +43,14 @@ void ACustomPlaneTest::BeginPlay()
 	indices.Add(2);
 
 	ProceduralMesh->CreateMeshSection(0, vertices, indices, normals, texCoords, colors, TArray<FProcMeshTangent>(), true);
+}
+
+// Called when the game starts or when spawned
+void ACustomPlaneTest::BeginPlay()
+{
+	Super::BeginPlay();
+
+	
 }
 
 // Called every frame
