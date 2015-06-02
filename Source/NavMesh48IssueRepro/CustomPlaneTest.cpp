@@ -17,6 +17,14 @@ ACustomPlaneTest::ACustomPlaneTest(const FObjectInitializer& oi) : Super(oi)
 	check(RootComponent);
 	ProceduralMesh->SetMobility(EComponentMobility::Stationary);
 
+	
+}
+
+// Called when the game starts or when spawned
+void ACustomPlaneTest::BeginPlay()
+{
+	Super::BeginPlay();
+
 	TArray<FVector> vertices;
 	TArray<FVector> normals;
 	TArray<FVector2D> texCoords;
@@ -43,14 +51,13 @@ ACustomPlaneTest::ACustomPlaneTest(const FObjectInitializer& oi) : Super(oi)
 	indices.Add(2);
 
 	ProceduralMesh->CreateMeshSection(0, vertices, indices, normals, texCoords, colors, TArray<FProcMeshTangent>(), true);
-}
 
-// Called when the game starts or when spawned
-void ACustomPlaneTest::BeginPlay()
-{
-	Super::BeginPlay();
+	ProceduralMesh->UpdateBounds();
 
-	
+	//RootComponent->SetWorldScale3D(FVector(1.0001f, 1.0001f, 1.0001f));
+	//RootComponent->SetWorldScale3D(FVector(1.f, 1.f, 1.f));
+
+	//UNavigationSystem::UpdateNavOctree(ProceduralMesh);
 }
 
 // Called every frame
@@ -58,5 +65,8 @@ void ACustomPlaneTest::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
 
+	
+
+	//RootComponent->SetScale3D(FVector(1.1f, 1.1f, 1.1f));
 }
 
