@@ -15,6 +15,7 @@ ACustomPlaneTest::ACustomPlaneTest(const FObjectInitializer& oi) : Super(oi)
 	check(ProceduralMesh);
 	RootComponent = ProceduralMesh;
 	check(RootComponent);
+	ProceduralMesh->SetMobility(EComponentMobility::Stationary);
 }
 
 // Called when the game starts or when spawned
