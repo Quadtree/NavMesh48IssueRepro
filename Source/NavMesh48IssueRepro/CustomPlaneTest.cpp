@@ -52,7 +52,7 @@ void ACustomPlaneTest::BeginPlay()
 
 	ProceduralMesh->CreateMeshSection(0, vertices, indices, normals, texCoords, colors, TArray<FProcMeshTangent>(), true);
 
-	ProceduralMesh->UpdateBounds();
+	//ProceduralMesh->UpdateBounds();
 
 	//RootComponent->SetWorldScale3D(FVector(1.0001f, 1.0001f, 1.0001f));
 	//RootComponent->SetWorldScale3D(FVector(1.f, 1.f, 1.f));
